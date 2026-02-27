@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     "https://api.baserow.io/api/database/rows/table/843455/?user_field_names=true",
     {
       headers: {
-        Authorization: `Token ${process.env.BASEROW_TOKEN}`
+        Authorization: `2y8kAxYZbNJ2c2iefUyUeVeGOqXB6efN`
       }
     }
   );
