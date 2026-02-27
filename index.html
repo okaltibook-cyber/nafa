@@ -141,14 +141,7 @@ footer {
 </footer>
 
 <script>
-const API_TOKEN = "PUT_YOUR_REAL_TOKEN_HERE";
-const TABLE_ID = "843455";
-
-fetch(`https://api.baserow.io/api/database/rows/table/${TABLE_ID}/?user_field_names=true`, {
-    headers: {
-        "Authorization": `Token ${API_TOKEN}`
-    }
-})
+fetch(`/api/data`)
 .then(response => response.json())
 .then(data => {
     const results = data.results;
@@ -157,11 +150,9 @@ fetch(`https://api.baserow.io/api/database/rows/table/${TABLE_ID}/?user_field_na
     const headRow = document.getElementById("table-head");
     const body = document.getElementById("table-body");
 
-    // Clear previous content
     headRow.innerHTML = "";
     body.innerHTML = "";
 
-    // Create headers
     Object.keys(results[0]).forEach(key => {
         if(key !== "id") {
             const th = document.createElement("th");
@@ -170,7 +161,6 @@ fetch(`https://api.baserow.io/api/database/rows/table/${TABLE_ID}/?user_field_na
         }
     });
 
-    // Create rows
     results.forEach(row => {
         const tr = document.createElement("tr");
         Object.keys(row).forEach(key => {
